@@ -1,28 +1,21 @@
 source "https://rubygems.org"
 
-# if you are using other than GitHub Pages,
-#gem "jekyll", "~> 3.9.0", group: :jekyll_plugins
+# 깃허브 페이지 공식 지원 버전으로 설정합니다.
+gem "github-pages", group: :jekyll_plugins
 
-# If you have any plugins, put them here!
-# group :jekyll_plugins do
-#   gem "jekyll-paginate", "~> 1.1.0"
-#   gem "jekyll-redirect-from", "~> 0.16.0"
-# end
+# Mr. Green 테마 작동에 꼭 필요한 플러그인들입니다.
+group :jekyll_plugins do
+  gem "jekyll-paginate"
+  gem "jekyll-redirect-from"
+  gem "jekyll-sitemap"
+  gem "jekyll-gist"
+end
 
-# If you want to use GitHub Pages, remove the "gem "jekyll"" above and
-# uncomment the line below. To upgrade, run `bundle update github-pages`.
-# all supported plugins by GitHub Pages are included in "github-pages". (GitHub Pages doesn't support 3rd party plugins)
-gem "github-pages", "~> 231"
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-# and associated library.
+# Windows 환경 사용자를 위한 설정입니다.
 install_if -> { RUBY_PLATFORM =~ %r!mingw|mswin|java! } do
   gem "tzinfo", "~> 1.2"
   gem "tzinfo-data"
 end
 
-# Performance-booster for watching directories on Windows
-gem "wdm", "~> 0.1.0", :install_if => Gem.win_platform?
-
-# HTTP server for local tests
+# 로컬 테스트를 위한 서버 설정입니다.
 gem "webrick", "~> 1.7"
